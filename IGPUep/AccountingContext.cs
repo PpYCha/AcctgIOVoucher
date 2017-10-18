@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 
 namespace IGPUep
 {
-    public class AccountingContext:DbContext
+    public class AccountingContext : DbContext
     {
-        public AccountingContext() : base("name=AccountingContext")
-        {
-        }
         public virtual DbSet<Voucher> Vouchers { get; set; }
-       // public DbSet<Payee> Payees { get; set; }
+        public AccountingContext()
+        { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Voucher>().HasKey(k => k.VoucherID);
+            modelBuilder.Entity<Payee>().HasKey(k => k.PayeeID);
+        }
     }
 }
