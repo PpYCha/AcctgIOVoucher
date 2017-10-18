@@ -1,0 +1,239 @@
+﻿<UserControl x:Class="IGPUep.Views.InputVoucherView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IGPUep.Views"
+              xmlns:numberOnlyBehaviourWpf="clr-namespace:NumberOnlyBehaviourWPF"
+             mc:Ignorable="d" >
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <GroupBox>
+        <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 1 -->
+         
+        <GroupBox Grid.Row="1" Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="Kapihan" />
+                <TextBlock Text="Entity Name" />
+                <TextBlock Text="DISBURSEMENT VOUCHER"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="2">
+                    <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5"> 
+                    <Label Content="Fund Cluster:"/>
+                    <TextBox x:Name="FundCluster"
+                             Text="{Binding FundCluster, Mode=TwoWay}"
+                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                             Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label  Content="Date:"/>
+                            <DatePicker Width="200" SelectedDate="{Binding DateTime1, Mode=TwoWay}"/>
+                        </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text=" DV No:"/>
+                            <TextBox x:Name="DVNumber"
+                             Text="{Binding DVNumber, Mode=TwoWay}"
+                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                             Width="200"/>
+                        </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Row 2 -->
+        <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+            <WrapPanel Orientation="Horizontal">
+                <StackPanel Margin="0,0,10,0">
+                    <TextBlock Text="Mode of Payment:"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <!--<CheckBox Content="MDS Check"  />
+                    <CheckBox Content="Command Check"/>
+                    <CheckBox Content="ADA"/>
+                    <CheckBox Content="Others (Please Specify)"/>-->
+
+                    <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
+                          SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
+                    </ComboBox>
+
+                        </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+        
+        <!-- Row 3 -->
+        <GroupBox Grid.Row="3" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Payee"/>
+                            <StackPanel>
+                                <TextBox Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBox Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBox Width="200"/>
+                            </StackPanel>
+                             
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="TIN/Employee No:"/>
+                            <TextBox x:Name="TinOrEmployeeNumber" 
+                             Text="{Binding TinOrEmployeeNumber, Mode=TwoWay}"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                             Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ORS/BURS No:"/>
+                    <TextBox Width="200"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <!-- Row 4 -->
+        <GroupBox Grid.Row="4" Grid.Column="1"
+                  Grid.ColumnSpan="3">
+            <StackPanel Orientation="Horizontal">
+            <Label Content="Adress:"/>
+            <TextBox Width="300"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Row 6 -->
+        <GroupBox Grid.Row="5" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                    <Label Content="Particulars"/>
+                    <TextBox Width="200" Height="200"/>
+                </StackPanel>
+                <StackPanel  Margin="0,0,10,0">
+                    <Label Content="Responsibility" />
+                    <TextBox Width="200" Height="200"/>
+                </StackPanel>
+                <StackPanel  Margin="0,0,10,0">
+                    <Label Content="MFO/PAP" />
+                            <ComboBox Width="200" ItemsSource="{Binding MFOPAPList}" 
+                                  SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
+                            </ComboBox>
+                        </StackPanel>
+                <StackPanel  Margin="0,0,10,0">
+                    <Label Content="Amount" />
+                    <TextBox Width="200" Height="200"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Row 7 -->
+        <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <Label Content="Account Title"/>
+                    <ComboBox>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Test"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="UACS CODE"/>
+                    <ComboBox>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Test"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <Label Content="Debit"/>
+                    <TextBox Width="200"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Credit"/>
+                    <TextBox Width="200"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        
+        <!-- Row 7 -->
+        <GroupBox Grid.Row="7" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                    <Label Content="Certified"/>
+                    <CheckBox Content="Cash Available"/>
+                    <CheckBox Content="Subject to Authority to Debit Account (when applicable)"/>
+                    <CheckBox Content="Supporting Documents Complete and Amount Claimed"/>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Approved for Payment"/>
+                    <TextBox Width="200" Height="200"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Row 8 -->
+        <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="0,0,10,0">
+                    <Label Content="Check/ADA No."/>
+                    <TextBox Width="200"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,10,0">
+                    <Label Content="Date"/>
+                    <DatePicker Width="200"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,10,0">
+                    <Label Content="Bank Name and Account"/>
+                    <TextBox Width="200" Height="50"/>
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel>
+                        <Label Content="JEV No."/>
+                        <TextBox Width="200"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="Date"/>
+                        <DatePicker Width="200"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Row 9 -->
+        
+        <StackPanel Grid.Row="10" Grid.Column="1">
+        <Button Name="SaveBtn">Add</Button>
+        <Button Name="ClearBtn">Return</Button>
+        </StackPanel>
+
+    </Grid>
+        </GroupBox>
+    </ScrollViewer>
+</UserControl>
