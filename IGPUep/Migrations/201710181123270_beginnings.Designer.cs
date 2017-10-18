@@ -6,14 +6,14 @@ namespace IGPUep.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class katikangan : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.2.0-beta1-60406")]
+    public sealed partial class beginnings : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(katikangan));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(beginnings));
         
         string IMigrationMetadata.Id
         {
-            get { return "201710181056451_katikangan"; }
+            get { return "201710181123270_beginnings"; }
         }
         
         string IMigrationMetadata.Source

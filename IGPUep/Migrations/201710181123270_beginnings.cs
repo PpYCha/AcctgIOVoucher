@@ -3,7 +3,7 @@ namespace IGPUep.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class katikangan : DbMigration
+    public partial class beginnings : DbMigration
     {
         public override void Up()
         {
