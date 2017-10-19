@@ -19,7 +19,6 @@ namespace IGPUep.Models
         public string ModeOfPayment { get; set; }
         public string TinOrEmployeeNumber { get; set; }
         public string OrsOrBurs { get; set; }
-        public string Address { get; set; }
         public string Particulars { get; set; }
         public string Amount { get; set; }
         public string MFOPAP { get; set; }

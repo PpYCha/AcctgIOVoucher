@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="IGPUep.Views.CheckdjView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IGPUep.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="1049.927">
+    <Grid>
+        <ListView Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Date" Width="120"/>
+                    <GridViewColumn Header="Check No." Width="120"/>
+                    <GridViewColumn Header="DV No." Width="120"/>
+                    <GridViewColumn Header="JEV No." Width="120"/>
+                    <GridViewColumn Header="Payee" Width="120"/>
+                    <GridViewColumn Header="Credit" Width="120">
+                        
+                    </GridViewColumn>
+                    <GridViewColumn Header="Debit" Width="120"/>
+                    <GridViewColumn Header="Sundry Account." Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

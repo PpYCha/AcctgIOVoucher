@@ -38,7 +38,29 @@ namespace IGPUep.ViewModels
             "Account Title 5"
         };
 
-        public ICollection<string> UacsCodeList { get; set; }
+        public ICollection<string> UacsCodeList { get; set; } = new List<string>
+        {
+            "uac1",
+            "uac2",
+            "uac3",
+            "uac4",
+            "uac5"
+        };
+
+
+
+
+
+        //public string ModeOfPayment { get; set; }
+        //public string TinOrEmployeeNumber { get; set; }
+        //public string OrsOrBurs { get; set; }
+        //public string Address { get; set; }
+        //public string Particulars { get; set; }
+        //public string Amount { get; set; }
+        //public string MFOPAP { get; set; }
+
+
+        //Voucher
 
         private string _fundCluster;
 
@@ -51,7 +73,21 @@ namespace IGPUep.ViewModels
             set
             {
                 _fundCluster = value;
-              
+
+            }
+        }
+
+        private DateTime? _dateTime1;
+
+        public DateTime? DateTime1
+        {
+            get
+            {
+                return _dateTime1;
+            }
+            set
+            {
+                _dateTime1 = value;
             }
         }
 
@@ -69,28 +105,19 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private DateTime?  _dateTime1;
+        private string _modeOfPayment;
 
-        public DateTime?  DateTime1
+        public string ModeOfPayment
         {
             get
             {
-                return _dateTime1;
+                return _modeOfPayment;
             }
             set
             {
-                _dateTime1 = value;
+                _modeOfPayment = value;
             }
         }
-
-
-        //public string ModeOfPayment { get; set; }
-        //public string TinOrEmployeeNumber { get; set; }
-        //public string OrsOrBurs { get; set; }
-        //public string Address { get; set; }
-        //public string Particulars { get; set; }
-        //public string Amount { get; set; }
-        //public string MFOPAP { get; set; }
 
         private string _tinOrEmployeeNumber;
 
@@ -136,9 +163,105 @@ namespace IGPUep.ViewModels
 
         public string MFOPAP
         {
-            get { return _mFOPAP; }
-            set { _mFOPAP = value; }
+            get {
+                return _mFOPAP;
+            }
+            set
+            {
+                _mFOPAP = value;
+            }
         }
+
+        //Address
+        private string _zone;
+
+        public string Zone
+        {
+            get
+            {
+                return _zone;
+            }
+            set
+            {
+                _zone = value;
+            }
+        }
+
+        private string _baranggay;
+
+        public string Baranggay
+        {
+            get
+            {
+                return _baranggay;
+            }
+            set
+            {
+                _baranggay = value;
+            }
+        }
+
+        private string _municipality;
+
+        public string Municipality
+        {
+            get
+            {
+                return _municipality;
+            }
+            set
+            {
+                _municipality = value;
+            }
+        }
+
+        //Payee
+        private string _firstName;
+
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            set
+            {
+                _firstName = value;
+            }
+        }
+
+        private string _midleName;
+
+        public string MiddleName
+        {
+            get
+            {
+                return _midleName;
+            }
+            set
+            {
+                _midleName = value;
+            }
+        }
+
+        private string _lastName;
+
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                _lastName = value;
+            }
+        }
+
+
+
+
+
 
 
 
@@ -156,15 +279,36 @@ namespace IGPUep.ViewModels
                 { FundCluster = _fundCluster,
                   DVNumber = _dvNumber,
                   DateTIme1 = _dateTime1,
+                  ModeOfPayment = _modeOfPayment,
                   TinOrEmployeeNumber = _tinOrEmployeeNumber,
-                  MFOPAP = _mFOPAP
+                  OrsOrBurs = _orsOrBurs,
+                  Particulars = _particulars,
+                  MFOPAP = _mFOPAP,
+                  
+                  
 
+                };
+
+                Address AddressModel = new Address()
+                {
+                    Zone = _zone,
+                    Baranggay = _baranggay,
+                    Municipality = _municipality
+                };
+
+                Payee PayeesModel = new Payee()
+                {
+                    FirstName = _firstName,
+                    MiddleName = _midleName,
+                    LastName = _lastName
                 };
 
                 //Voucher dvNumber = new Voucher() { DVNumber = _dvNumber };
                 ctx.Vouchers.Add(fundClusterNumber);
+                ctx.Addresses.Add(AddressModel);
+                ctx.Payees.Add(PayeesModel);
                 ctx.SaveChanges();
-
+                
                 ClearBtn();
             }
         }

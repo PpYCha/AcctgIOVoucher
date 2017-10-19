@@ -19,6 +19,10 @@ namespace IGPUep.ViewModels
             ActivateItem(new InputVoucherViewModel());
         }
 
+        public void LoadCheckdj()
+        {
+            ActivateItem(new CheckdjViewModel());
+        }
 
     }
 }

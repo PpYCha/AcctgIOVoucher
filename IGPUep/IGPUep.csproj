@@ -93,13 +93,34 @@
     <Compile Include="Migrations\201710181125270_fix_id.Designer.cs">
       <DependentUpon>201710181125270_fix_id.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710190515086_Address.cs" />
+    <Compile Include="Migrations\201710190515086_Address.Designer.cs">
+      <DependentUpon>201710190515086_Address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710190521003_addreses.cs" />
+    <Compile Include="Migrations\201710190521003_addreses.Designer.cs">
+      <DependentUpon>201710190521003_addreses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710190540377_payees.cs" />
+    <Compile Include="Migrations\201710190540377_payees.Designer.cs">
+      <DependentUpon>201710190540377_payees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710190607330_deleteAddressInVouchher.cs" />
+    <Compile Include="Migrations\201710190607330_deleteAddressInVouchher.Designer.cs">
+      <DependentUpon>201710190607330_deleteAddressInVouchher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="NumberOnlyBehaviour.cs" />
+    <Compile Include="ViewModels\CheckdjViewModel.cs" />
     <Compile Include="ViewModels\IGPViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\InputVoucherViewModel.cs" />
+    <Compile Include="Views\CheckdjView.xaml.cs">
+      <DependentUpon>CheckdjView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\IGPView.xaml.cs">
       <DependentUpon>IGPView.xaml</DependentUpon>
     </Compile>
@@ -131,6 +152,18 @@
     <EmbeddedResource Include="Migrations\201710181125270_fix_id.resx">
       <DependentUpon>201710181125270_fix_id.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710190515086_Address.resx">
+      <DependentUpon>201710190515086_Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710190521003_addreses.resx">
+      <DependentUpon>201710190521003_addreses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710190540377_payees.resx">
+      <DependentUpon>201710190540377_payees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710190607330_deleteAddressInVouchher.resx">
+      <DependentUpon>201710190607330_deleteAddressInVouchher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -145,6 +178,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CheckdjView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\IGPView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

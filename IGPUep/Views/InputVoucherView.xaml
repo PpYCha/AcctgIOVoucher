@@ -5,235 +5,351 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IGPUep.Views"
               xmlns:numberOnlyBehaviourWpf="clr-namespace:NumberOnlyBehaviourWPF"
-             mc:Ignorable="d" >
+             mc:Ignorable="d" Height="1024.5" >
+
+
+
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <GroupBox>
-        <Grid>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
+            <Grid>
 
-        <!-- Row 1 -->
-         
-        <GroupBox Grid.Row="1" Grid.Column="1">
-            <StackPanel>
-                <TextBlock Text="Kapihan" />
-                <TextBlock Text="Entity Name" />
-                <TextBlock Text="DISBURSEMENT VOUCHER"/>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <!-- Row 1 -->
+
+                <GroupBox Grid.Row="1" Grid.Column="1">
                     <StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5"> 
-                    <Label Content="Fund Cluster:"/>
-                    <TextBox x:Name="FundCluster"
+                        <TextBlock Text="Kapihan" />
+                        <TextBlock Text="Entity Name" />
+                        <TextBlock Text="DISBURSEMENT VOUCHER"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Grid.Column="2">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label Content="Fund Cluster:"/>
+                            <TextBox x:Name="FundCluster"
                              Text="{Binding FundCluster, Mode=TwoWay}"
                            numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                              Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label  Content="Date:"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label  Content="Date:"/>
                             <DatePicker Width="200" SelectedDate="{Binding DateTime1, Mode=TwoWay}"/>
                         </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text=" DV No:"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text=" DV No:"/>
                             <TextBox x:Name="DVNumber"
                              Text="{Binding DVNumber, Mode=TwoWay}"
                            numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                              Width="200"/>
                         </StackPanel>
-            </StackPanel>
-        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
 
-        <!-- Row 2 -->
-        <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-            <WrapPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="Mode of Payment:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <!--<CheckBox Content="MDS Check"  />
+                <!-- Row 2 -->
+                <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,10,0">
+                            <TextBlock Text="Mode of Payment:"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<CheckBox Content="MDS Check"  />
                     <CheckBox Content="Command Check"/>
                     <CheckBox Content="ADA"/>
                     <CheckBox Content="Others (Please Specify)"/>-->
 
-                    <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
-                          SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
-                    </ComboBox>
+                            <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
+                          SelectedItem="{Binding ModeOfPayment, Mode=TwoWay}">
+                            </ComboBox>
+                            <TextBox Width="200"/>
+                        </StackPanel>
+                    </WrapPanel>
+                </GroupBox>
+
+                <!-- Row 3 -->
+                <GroupBox Grid.Row="3" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Payee"/>
+                            <StackPanel>
+                                <TextBox x:Name="FirstName" 
+                                         Text="{Binding FirstName, Mode=TwoWay}" Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBox x:Name="MiddleName" 
+                                         Text="{Binding MiddleName, Mode=TwoWay}" Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBox x:Name="LastName"
+                                         Text="{Binding LastName, Mode=TwoWay}" Width="200"/>
+                            </StackPanel>
 
                         </StackPanel>
-            </WrapPanel>
-        </GroupBox>
-        
-        <!-- Row 3 -->
-        <GroupBox Grid.Row="3" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Payee"/>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                             
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="TIN/Employee No:"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="TIN/Employee No:"/>
                             <TextBox x:Name="TinOrEmployeeNumber" 
                              Text="{Binding TinOrEmployeeNumber, Mode=TwoWay}"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                              Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="ORS/BURS No:"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-        <!-- Row 4 -->
-        <GroupBox Grid.Row="4" Grid.Column="1"
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ORS/BURS No:"/>
+                            <TextBox x:Name="OrsOrBurs"
+                                     Text="{Binding OrsOrBurs, Mode=TwoWay}" 
+                                     numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                                     Width="200"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <!-- Row 4 -->
+                <GroupBox Grid.Row="4" Grid.Column="1"
                   Grid.ColumnSpan="3">
-            <StackPanel Orientation="Horizontal">
-            <Label Content="Adress:"/>
-            <TextBox Width="300"/>
-            </StackPanel>
-        </GroupBox>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Adress:"/>
+                        <TextBox x:Name="Zone" Text="{Binding Zone, Mode=TwoWay}" Width="200"/>
+                        <TextBox x:Name="Baranggay" Text="{Binding Baranggay, Mode=TwoWay}" Width="200"/>
+                        <TextBox x:Name="Municipality" Text="{Binding Municipality, Mode=TwoWay}" Width="200"/>
 
-        <!-- Row 6 -->
-        <GroupBox Grid.Row="5" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                    <Label Content="Particulars"/>
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="Responsibility" />
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="MFO/PAP" />
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 6 -->
+                <GroupBox Grid.Row="5" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                            <Label Content="Particulars"/>
+                            <TextBox x:Name="Particulars"
+                                     Text="{Binding Particulars, Mode=TwoWay}"
+                                     Width="200" Height="200"/>
+                        </StackPanel>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="Responsibility" />
+                            <TextBox Width="200" Height="200"/>
+                        </StackPanel>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="MFO/PAP" />
                             <ComboBox Width="200" ItemsSource="{Binding MFOPAPList}" 
                                   SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
                             </ComboBox>
                         </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="Amount" />
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="Amount" />
+                            <TextBox Width="200" Height="200"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
 
-        <!-- Row 7 -->
-        <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel>
-                    <Label Content="Account Title"/>
-                    <ComboBox>
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Test"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="UACS CODE"/>
-                    <ComboBox>
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Test"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
+                <!-- Row 7 -->
+                <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <Label Content="Account Title"/>
+                            <ComboBox>
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Test"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="UACS CODE"/>
+                            <ComboBox>
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Test"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
 
-                <StackPanel>
-                    <Label Content="Debit"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="Credit"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-        
-        <!-- Row 7 -->
-        <GroupBox Grid.Row="7" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" >
-                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                    <Label Content="Certified"/>
-                    <CheckBox Content="Cash Available"/>
-                    <CheckBox Content="Subject to Authority to Debit Account (when applicable)"/>
-                    <CheckBox Content="Supporting Documents Complete and Amount Claimed"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="Approved for Payment"/>
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
+                        <StackPanel>
+                            <Label Content="Debit"/>
+                            <TextBox Width="200"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Credit"/>
+                            <TextBox Width="200"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
 
-        <!-- Row 8 -->
-        <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Check/ADA No."/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Date"/>
-                    <DatePicker Width="200"/>
-                </StackPanel>
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Bank Name and Account"/>
-                    <TextBox Width="200" Height="50"/>
-                </StackPanel>
-                <StackPanel>
-                    <StackPanel>
-                        <Label Content="JEV No."/>
+                <!-- Row 7 -->
+                <GroupBox Grid.Row="7" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" >
+                        <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                            <Label Content="Certified"/>
+                            <CheckBox Content="Cash Available"/>
+                            <CheckBox Content="Subject to Authority to Debit Account (when applicable)"/>
+                            <CheckBox Content="Supporting Documents Complete and Amount Claimed"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Approved for Payment"/>
+                            <TextBox>
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                        <Style.Resources>
+                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                <VisualBrush.Visual>
+                                                    <Label Content="First Name" Foreground="LightGray" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Style.Resources>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="Background" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <TextBox>
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                        <Style.Resources>
+                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                <VisualBrush.Visual>
+                                                    <Label Content="Middle Name" Foreground="LightGray" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Style.Resources>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="Background" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <TextBox>
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                        <Style.Resources>
+                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                <VisualBrush.Visual>
+                                                    <Label Content="Lsat Name" Foreground="LightGray" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Style.Resources>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="Background" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <TextBox>
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                                        <Style.Resources>
+                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                <VisualBrush.Visual>
+                                                    <Label Content="Position Job" Foreground="LightGray" />
+                                                </VisualBrush.Visual>
+                                            </VisualBrush>
+                                        </Style.Resources>
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="{x:Null}">
+                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter Property="Background" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 8 -->
+                <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Check/ADA No."/>
+                            <TextBox Width="200"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Date"/>
+                            <DatePicker Width="200"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Bank Name and Account"/>
+                            <TextBox Width="200" Height="50"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <StackPanel>
+                                <Label Content="JEV No."/>
+                                <TextBox Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Date"/>
+                                <DatePicker Width="200"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 9 -->
+                <StackPanel Grid.Row="10" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Prepared By:"/>
+                        <TextBox Width="200"/>
+                        <TextBox Width="200"/>
                         <TextBox Width="200"/>
                     </StackPanel>
                     <StackPanel>
-                        <Label Content="Date"/>
-                        <DatePicker Width="200"/>
+                        <Button Name="SaveBtn">Add</Button>
+                        <Button Name="ClearBtn">Return</Button>
                     </StackPanel>
+
                 </StackPanel>
-            </StackPanel>
-        </GroupBox>
-
-        <!-- Row 9 -->
-        
-        <StackPanel Grid.Row="10" Grid.Column="1">
-        <Button Name="SaveBtn">Add</Button>
-        <Button Name="ClearBtn">Return</Button>
-        </StackPanel>
-
-    </Grid>
+            </Grid>
         </GroupBox>
     </ScrollViewer>
 </UserControl>

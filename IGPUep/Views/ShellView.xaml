@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:IGPUep.Views"
         mc:Ignorable="d" 
         Title="ShellView" Height="329.075" WindowState="Maximized" Width="335.683">
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -31,6 +33,9 @@
                 </StackPanel>
                 <StackPanel>
                     <Button x:Name="LoadIGP" Grid.Row="2" Grid.Column="1">IGPs</Button>
+                </StackPanel>
+                <StackPanel>
+                    <Button x:Name="LoadCheckdj" Grid.Row="3" Grid.Column="1">Check DJ</Button>
                 </StackPanel>
             </StackPanel>
 
