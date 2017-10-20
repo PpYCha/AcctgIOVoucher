@@ -12,6 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
@@ -28,14 +29,12 @@
         </StackPanel>
         <GroupBox VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" FontSize="18">
             <StackPanel>
-                <StackPanel>
-                    <Button x:Name="LoadInputVoucher" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" >Input Voucher</Button>
-                </StackPanel>
+            
                 <StackPanel>
                     <Button x:Name="LoadIGP" Grid.Row="2" Grid.Column="1">IGPs</Button>
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="LoadCheckdj" Grid.Row="3" Grid.Column="1">Check DJ</Button>
+                    <Button x:Name="LoadCheckdj" Grid.Row="3" Grid.Column="1">Manage IGP</Button>
                 </StackPanel>
             </StackPanel>
 

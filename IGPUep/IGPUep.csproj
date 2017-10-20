@@ -109,18 +109,21 @@
     <Compile Include="Migrations\201710190607330_deleteAddressInVouchher.Designer.cs">
       <DependentUpon>201710190607330_deleteAddressInVouchher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710191534437_deletePayee.cs" />
+    <Compile Include="Migrations\201710191534437_deletePayee.Designer.cs">
+      <DependentUpon>201710191534437_deletePayee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710191728169_deleteAddress.cs" />
+    <Compile Include="Migrations\201710191728169_deleteAddress.Designer.cs">
+      <DependentUpon>201710191728169_deleteAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="NumberOnlyBehaviour.cs" />
-    <Compile Include="ViewModels\CheckdjViewModel.cs" />
+    <Compile Include="ViewModels\ManageIGPViewModel.cs" />
     <Compile Include="ViewModels\IGPViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\InputVoucherViewModel.cs" />
-    <Compile Include="Views\CheckdjView.xaml.cs">
-      <DependentUpon>CheckdjView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\IGPView.xaml.cs">
       <DependentUpon>IGPView.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,12 @@
     <EmbeddedResource Include="Migrations\201710190607330_deleteAddressInVouchher.resx">
       <DependentUpon>201710190607330_deleteAddressInVouchher.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191534437_deletePayee.resx">
+      <DependentUpon>201710191534437_deletePayee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710191728169_deleteAddress.resx">
+      <DependentUpon>201710191728169_deleteAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -178,7 +187,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\CheckdjView.xaml">
+    <Page Include="Views\ManageIGPView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,9 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       
              xmlns:local="clr-namespace:IGPUep.Views"
               xmlns:numberOnlyBehaviourWpf="clr-namespace:NumberOnlyBehaviourWPF"
-             mc:Ignorable="d" Height="1024.5" >
+             mc:Ignorable="d" Height="934.5" >
+
+
+    <UserControl.Resources>
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="White" BorderBrush="#FF7D8683" BorderThickness="1"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
 
 
@@ -50,9 +80,11 @@
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <Label Content="Fund Cluster:"/>
                             <TextBox x:Name="FundCluster"
-                             Text="{Binding FundCluster, Mode=TwoWay}"
-                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
-                             Width="200"/>
+                              Text="{Binding FundCluster, Mode=TwoWay}"
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="DV Number"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <Label  Content="Date:"/>
@@ -62,14 +94,16 @@
                             <TextBlock Text=" DV No:"/>
                             <TextBox x:Name="DVNumber"
                              Text="{Binding DVNumber, Mode=TwoWay}"
-                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
-                             Width="200"/>
+                             numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                             Width="200"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="YEAR-MONTH-NUMBER"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
 
                 <!-- Row 2 -->
-                <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                     <WrapPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,10,0">
                             <TextBlock Text="Mode of Payment:"/>
@@ -83,28 +117,21 @@
                             <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
                           SelectedItem="{Binding ModeOfPayment, Mode=TwoWay}">
                             </ComboBox>
-                            <TextBox Width="200"/>
+                            <TextBox Width="200"
+                                      Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Specify Here"/>
                         </StackPanel>
                     </WrapPanel>
                 </GroupBox>
 
                 <!-- Row 3 -->
-                <GroupBox Grid.Row="3" Grid.Column="1">
+                <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
                             <Label Content="Payee"/>
-                            <StackPanel>
-                                <TextBox x:Name="FirstName" 
-                                         Text="{Binding FirstName, Mode=TwoWay}" Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox x:Name="MiddleName" 
-                                         Text="{Binding MiddleName, Mode=TwoWay}" Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox x:Name="LastName"
-                                         Text="{Binding LastName, Mode=TwoWay}" Width="200"/>
-                            </StackPanel>
+
+                            <TextBox x:Name="FirstName" Width="200"/>
+
 
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -125,28 +152,27 @@
                 </GroupBox>
                 <!-- Row 4 -->
                 <GroupBox Grid.Row="4" Grid.Column="1"
-                  Grid.ColumnSpan="3">
+                  Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Adress:"/>
-                        <TextBox x:Name="Zone" Text="{Binding Zone, Mode=TwoWay}" Width="200"/>
-                        <TextBox x:Name="Baranggay" Text="{Binding Baranggay, Mode=TwoWay}" Width="200"/>
-                        <TextBox x:Name="Municipality" Text="{Binding Municipality, Mode=TwoWay}" Width="200"/>
+                        <TextBox x:Name="Zone" Text="{Binding Zone, Mode=TwoWay}" 
+                                 Width="300"/>
 
                     </StackPanel>
                 </GroupBox>
 
                 <!-- Row 6 -->
-                <GroupBox Grid.Row="5" Grid.Column="1">
+                <GroupBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Orientation="Vertical" Margin="0,0,10,0">
                             <Label Content="Particulars"/>
                             <TextBox x:Name="Particulars"
                                      Text="{Binding Particulars, Mode=TwoWay}"
-                                     Width="200" Height="200"/>
+                                     Width="200" Height="100"/>
                         </StackPanel>
                         <StackPanel  Margin="0,0,10,0">
                             <Label Content="Responsibility" />
-                            <TextBox Width="200" Height="200"/>
+                            <TextBox Width="200" Height="100"/>
                         </StackPanel>
                         <StackPanel  Margin="0,0,10,0">
                             <Label Content="MFO/PAP" />
@@ -156,34 +182,30 @@
                         </StackPanel>
                         <StackPanel  Margin="0,0,10,0">
                             <Label Content="Amount" />
-                            <TextBox Width="200" Height="200"/>
+                            <TextBox x:Name="Amount1" Width="200" Height="50"
+                                      numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"/>
+                            <TextBlock Text="{Binding Path=Amount1, Mode=OneWay}"  
+                                       Width="200" Height="50"
+                                       TextAlignment="Right"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
 
                 <!-- Row 7 -->
-                <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1">
+                <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel>
                             <Label Content="Account Title"/>
-                            <ComboBox>
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Test"/>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
+                            <ComboBox Width="200" ItemsSource="{Binding AccountTitleList}" 
+                                  SelectedItem="{Binding AccountTitleList, Mode=TwoWay}">
                             </ComboBox>
                         </StackPanel>
-                        <StackPanel>
+                        <!--<StackPanel>
                             <Label Content="UACS CODE"/>
-                            <ComboBox>
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Test"/>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
+                            <ComboBox Width="200" ItemsSource="{Binding UacsCodeList}" 
+                                  SelectedItem="{Binding UacsCode, Mode=TwoWay}">
                             </ComboBox>
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <StackPanel>
                             <Label Content="Debit"/>
@@ -197,7 +219,7 @@
                 </GroupBox>
 
                 <!-- Row 7 -->
-                <GroupBox Grid.Row="7" Grid.Column="1">
+                <GroupBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal" >
                         <StackPanel Orientation="Vertical" Margin="0,0,10,0">
                             <Label Content="Certified"/>
@@ -207,108 +229,41 @@
                         </StackPanel>
                         <StackPanel>
                             <Label Content="Approved for Payment"/>
-                            <TextBox>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                                        <Style.Resources>
-                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                                <VisualBrush.Visual>
-                                                    <Label Content="First Name" Foreground="LightGray" />
-                                                </VisualBrush.Visual>
-                                            </VisualBrush>
-                                        </Style.Resources>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="{x:Null}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                                <Setter Property="Background" Value="White" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                            <TextBox>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                                        <Style.Resources>
-                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                                <VisualBrush.Visual>
-                                                    <Label Content="Middle Name" Foreground="LightGray" />
-                                                </VisualBrush.Visual>
-                                            </VisualBrush>
-                                        </Style.Resources>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="{x:Null}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                                <Setter Property="Background" Value="White" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                            <TextBox>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                                        <Style.Resources>
-                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                                <VisualBrush.Visual>
-                                                    <Label Content="Lsat Name" Foreground="LightGray" />
-                                                </VisualBrush.Visual>
-                                            </VisualBrush>
-                                        </Style.Resources>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="{x:Null}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                                <Setter Property="Background" Value="White" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                            <TextBox>
-                                <TextBox.Style>
-                                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-                                        <Style.Resources>
-                                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                                                <VisualBrush.Visual>
-                                                    <Label Content="Position Job" Foreground="LightGray" />
-                                                </VisualBrush.Visual>
-                                            </VisualBrush>
-                                        </Style.Resources>
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="{x:Null}">
-                                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                                            </Trigger>
-                                            <Trigger Property="IsKeyboardFocused" Value="True">
-                                                <Setter Property="Background" Value="White" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
+
+
+                            <TextBox  Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="First Name"/>
+                            <!--/ Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox 
+                          
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Middle Name"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox 
+                            
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Last Name"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox 
+                              
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Job Position"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
 
                 <!-- Row 8 -->
-                <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment">
+                <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment" Grid.ColumnSpan="2">
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,10,0">
                             <Label Content="Check/ADA No."/>
@@ -336,20 +291,28 @@
                 </GroupBox>
 
                 <!-- Row 9 -->
-                <StackPanel Grid.Row="10" Grid.Column="1">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Prepared By:"/>
-                        <TextBox Width="200"/>
-                        <TextBox Width="200"/>
-                        <TextBox Width="200"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button Name="SaveBtn">Add</Button>
-                        <Button Name="ClearBtn">Return</Button>
-                    </StackPanel>
+                <GroupBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Prepared By:"/>
+                            <TextBox Width="200"/>
+                         
+                        </StackPanel>
+                        <StackPanel>
+                            <Button Name="SaveBtn">Add</Button>
+                            <Button Name="ClearBtn">Return</Button>
+                        </StackPanel>
 
-                </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <Menu Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="126,65,0,0" Grid.Row="11" Grid.RowSpan="2" VerticalAlignment="Top" Width="100">
+                    <Button/>
+                    <Button/>
+                    <Button/>
+                </Menu>
             </Grid>
         </GroupBox>
     </ScrollViewer>
 </UserControl>
+
+                    

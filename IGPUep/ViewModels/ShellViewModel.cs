@@ -21,7 +21,17 @@ namespace IGPUep.ViewModels
 
         public void LoadCheckdj()
         {
-            ActivateItem(new CheckdjViewModel());
+            ActivateItem(new ManageIGPViewModel());
+            
+
+            dataCheckjd();
+        }
+
+
+        public void dataCheckjd()
+        {
+
+
         }
 
     }

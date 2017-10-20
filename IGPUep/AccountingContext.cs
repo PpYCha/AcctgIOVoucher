@@ -12,8 +12,8 @@ namespace IGPUep
     public class AccountingContext : DbContext
     {
         public virtual DbSet<Voucher> Vouchers { get; set; }
-        public virtual DbSet<Address> Addresses { get; set; }
-        public virtual DbSet<Payee> Payees { get; set; }
+       
+   
         public AccountingContext()
         { }
 
@@ -21,8 +21,8 @@ namespace IGPUep
         {
 
             modelBuilder.Entity<Voucher>().HasKey(k => k.VoucherID);
-            modelBuilder.Entity<Payee>().HasKey(k => k.PayeeID);
-            modelBuilder.Entity<Address>().HasKey(k => k.AddressID);
+       
+       
         }
     }
 }

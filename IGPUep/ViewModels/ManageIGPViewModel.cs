@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IGPUep.ViewModels
 {
-    public class CheckdjViewModel:Screen
+    public class ManageIGPViewModel:Screen
     {
     }
 }
