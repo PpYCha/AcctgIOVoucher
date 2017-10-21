@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IGPUep.Views"
         mc:Ignorable="d" 
-        Title="ShellView" Height="329.075" WindowState="Maximized" Width="335.683">
+        Title="IGP UEP System" Height="950" WindowState="Normal" Width="1350" WindowStartupLocation="CenterScreen">
     
     
     <Grid>
@@ -42,5 +42,7 @@
         <ContentControl Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" 
                         x:Name="ActiveItem" />
     </Grid>
+    
+    
 </Window>
     

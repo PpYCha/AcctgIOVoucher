@@ -5,6 +5,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IGPUep.Views"
              mc:Ignorable="d" Height="924.426" Width="1764.505">
+
+    <UserControl.Resources>
+        <Style x:Key="FadeOutButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Control.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <DoubleAnimation Duration="0:0:0.2" To="1" Storyboard.TargetProperty="Opacity"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Control.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <DoubleAnimation Duration="0:0:0.2" To="0.4" Storyboard.TargetProperty="Opacity"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+
+
+
+
+
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -19,8 +57,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <ScrollViewer  Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
-        <WrapPanel Orientation="Vertical">
+     
+        <!--<WrapPanel Orientation="Vertical">
                 <Button x:Name="LoadInputVoucher">
                     <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"></Image>
                 </Button>
@@ -29,13 +67,51 @@
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\gym.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\hostel.jpg"/>
            
-            <!--<Image MaxHeight="200" MaxWidth="200" Margin="10" Source="..\Images\Kapihan.jpg"/>-->
+            --><!--<Image MaxHeight="200" MaxWidth="200" Margin="10" Source="..\Images\Kapihan.jpg"/>--><!--
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\lights.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\piggery.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\whiteBeach.jpg"/>
             <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\farmers.jpg"/>
-        </WrapPanel>
-        </ScrollViewer>
+        </WrapPanel>-->
+
+        <ListView Grid.Row="1" Grid.Column="1" Margin="10">
+                                   
+            <ListViewItem>
+                <StackPanel>
+                    <StackPanel>
+                        <Button x:Name="LoadInputVoucher" 
+                                Style="{StaticResource FadeOutButton}"
+                                FocusVisualStyle="{x:Null}"
+                                Opacity="0.4"
+                                HorizontalAlignment="Center" 
+                                HorizontalContentAlignment="Center">
+                            <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
+                            <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+      
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"/>
+                        </Button>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
+                            <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                        </StackPanel>
+                        <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                    </StackPanel>
+                    <StackPanel>
+                       
+                    </StackPanel>
+                </StackPanel>
+            </ListViewItem>
+                           
+        </ListView>
         <ContentControl Margin="10,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" 
                         x:Name="ActiveItem" />
     </Grid>

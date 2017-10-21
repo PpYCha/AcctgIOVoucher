@@ -12,27 +12,29 @@ namespace IGPUep.ViewModels
         public void LoadIGP()
         {
             ActivateItem(new IGPViewModel());
+
+            //using (var context = new AccountingContext())
+            //{
+            //    // Query for all blogs with names starting with B 
+
+            //    foreach (var item in context.IGPss)
+            //    {
+               
+            //    }
+            //}
         }
 
-        public void LoadInputVoucher()
-        {
-            ActivateItem(new InputVoucherViewModel());
-        }
-
+      
         public void LoadCheckdj()
         {
             ActivateItem(new ManageIGPViewModel());
             
 
-            dataCheckjd();
+           
         }
 
 
-        public void dataCheckjd()
-        {
-
-
-        }
+   
 
     }
 }

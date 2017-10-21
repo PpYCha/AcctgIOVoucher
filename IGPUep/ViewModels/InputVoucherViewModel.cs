@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using IGPUep.Models;
+using IGPUep.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -215,6 +216,72 @@ namespace IGPUep.ViewModels
             }
         }
 
+        private string _accountTitle;
+
+        public string AccountTitle
+        {
+            get
+            {
+                return _accountTitle;
+            }
+            set
+            {
+                _accountTitle = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _uacsCode;
+
+        public string UacsCode
+        {
+            get
+            {
+                return _uacsCode;
+            }
+            set
+            { _uacsCode = value;
+            }
+        }
+
+        private string _debit;
+
+        public string Debit
+        {
+            get
+            {
+                return _debit;
+            }
+            set
+            {
+                _debit = value;
+            }
+        }
+
+        private string _credit;
+
+        public string Credit
+        {
+            get
+            {
+                return _credit;
+            }
+            set
+            {
+                _credit = value;
+            }
+        }
+
+
+        private string myVar;
+
+        public int MyProperty
+        {
+            get { return myVar; }
+            set { myVar = value; }
+        }
+
+
 
 
         public void SaveBtn()
@@ -260,6 +327,11 @@ namespace IGPUep.ViewModels
             OrsOrBurs = "";
             Particulars = "";
             MFOPAP = "";
+        }
+
+        public void ReportBtn()
+        {
+           
         }
     }
 }

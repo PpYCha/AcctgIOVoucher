@@ -4,10 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IGPUep.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" Width="1049.927">
+     
+            xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        
+             mc:Ignorable="d" Width="1049.927" Height="373.091">
     <Grid>
-        <ListView Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+      
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+       
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <!--<ListView Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" Width="120"/>
@@ -22,6 +36,40 @@
                     <GridViewColumn Header="Sundry Account." Width="120"/>
                 </GridView>
             </ListView.View>
-        </ListView>
+        </ListView>-->
+        <GroupBox Grid.Column="1" Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="IGP Name"/>
+                    <TextBox x:Name="IGPName" Text="{Binding IGPName, Mode=TwoWay}" Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="UEP Zone:"/>
+                    <TextBox x:Name="IGPZone" Text="{Binding IGPZone, Mode=TwoWay}"  Width="200"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="IGP Name:"/>
+                    <TextBlock Text="University Town, Northern Samar" Width="200"/>
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Grid.Column="2" Orientation="Vertical" Grid.RowSpan="6">
+                        <Image  Height="246"/>
+                        <Button Content="Browse" x:Name="LoadIgpList"  HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        
+                        <Button Content="Add IGP" x:Name="SaveIgp"  HorizontalAlignment="Center"/>
+                       
+                    </StackPanel>
+                </StackPanel>
+                
+               
+
+              
+            </StackPanel>
+        </GroupBox>
+        
+
     </Grid>
 </UserControl>

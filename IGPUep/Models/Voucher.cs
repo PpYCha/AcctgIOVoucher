@@ -28,6 +28,17 @@ namespace IGPUep.Models
         public string Debit { get; set; }
         public string JevNumber { get; set; }
         public DateTime? DateTIme1 { get; set; }
+        public DateTime? DateTime2 { get; set }
+        public DateTime? DateTim3 { get; set; }
+
+        //Approveed
+        public string AFName { get; set; }
+        public string AMName { get; set; }
+        public string ALName { get; set; }
+        public string AJobPosition { get; set; }
+
+        //Process
+        public string PName { get; set; }
 
     }
 }

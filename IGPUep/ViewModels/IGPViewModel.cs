@@ -12,6 +12,12 @@ namespace IGPUep.ViewModels
         public void LoadInputVoucher()
         {
             ActivateItem(new InputVoucherViewModel());
+          
+
         }
+
+
+       
+
     }
 }
