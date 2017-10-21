@@ -134,6 +134,14 @@
     <Compile Include="Migrations\201710201627418_Igpss.Designer.cs">
       <DependentUpon>201710201627418_Igpss.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710212004276_fix.cs" />
+    <Compile Include="Migrations\201710212004276_fix.Designer.cs">
+      <DependentUpon>201710212004276_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710212051545_CheckAda.cs" />
+    <Compile Include="Migrations\201710212051545_CheckAda.Designer.cs">
+      <DependentUpon>201710212051545_CheckAda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IGPs.cs" />
     <Compile Include="Models\Voucher.cs" />
@@ -204,6 +212,12 @@
     <EmbeddedResource Include="Migrations\201710201627418_Igpss.resx">
       <DependentUpon>201710201627418_Igpss.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710212004276_fix.resx">
+      <DependentUpon>201710212004276_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710212051545_CheckAda.resx">
+      <DependentUpon>201710212051545_CheckAda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -217,6 +231,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="SampleReportOutput\KAPIHAN INCOME STATEMENT.docx" />
+    <None Include="SampleReportOutput\Report Sample Output.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

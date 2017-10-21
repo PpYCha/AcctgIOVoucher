@@ -198,7 +198,7 @@
                         <StackPanel>
                             <Label Content="Account Title"/>
                             <ComboBox Width="200" ItemsSource="{Binding AccountTitleList}" 
-                                  SelectedItem="{Binding AccountTitleList, Mode=TwoWay}">
+                                  SelectedItem="{Binding AccountTitle, Mode=TwoWay}">
                             </ComboBox>
                         </StackPanel>
                         <StackPanel>
@@ -210,11 +210,11 @@
 
                         <StackPanel>
                             <Label Content="Debit"/>
-                            <TextBox Width="200"/>
+                            <TextBox x:Name="Debit" Text="{Binding Debit, Mode=TwoWay}" Width="200"/>
                         </StackPanel>
                         <StackPanel>
                             <Label Content="Credit"/>
-                            <TextBox Width="200"/>
+                            <TextBox x:Name="Credit" Text="{Binding Credit, Mode=TwoWay}" Width="200"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>
@@ -232,26 +232,27 @@
                             <Label Content="Approved for Payment"/>
 
 
-                            <TextBox  Width="200"
+                            <TextBox  x:Name="AFname" Text="{Binding AFname, Mode=TwoWay}" 
+                                Width="200"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                               Style="{StaticResource MyWaterMarkStyle}"
                               Height="25" Tag="First Name"/>
                             <!--/ Text="{Binding FundCluster, Mode=TwoWay}"-->
-                            <TextBox 
+                            <TextBox x:Name="AMName" Text="{Binding AMName, Mode=TwoWay}" 
                           
                               Width="200"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                               Style="{StaticResource MyWaterMarkStyle}"
                               Height="25" Tag="Middle Name"/>
                             <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
-                            <TextBox 
+                            <TextBox x:Name="ALName" Text="{Binding ALName, Mode=TwoWay}" 
                             
                               Width="200"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                               Style="{StaticResource MyWaterMarkStyle}"
                               Height="25" Tag="Last Name"/>
                             <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
-                            <TextBox 
+                            <TextBox x:Name="AJobPosition" Text="{Binding AJobPosition, Mode=TwoWay}" 
                               
                               Width="200"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
@@ -268,24 +269,24 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,10,0">
                             <Label Content="Check/ADA No."/>
-                            <TextBox Width="200"/>
+                            <TextBox Text="{Binding CheckAda, Mode=TwoWay}" Width="200"/>
                         </StackPanel>
                         <StackPanel Margin="0,0,10,0">
                             <Label Content="Date"/>
-                            <DatePicker Width="200"/>
+                            <DatePicker Width="200" SelectedDate="{Binding DateTime2, Mode=TwoWay}"/>
                         </StackPanel>
                         <StackPanel Margin="0,0,10,0">
                             <Label Content="Bank Name and Account"/>
-                            <TextBox Width="200" Height="50"/>
+                            <TextBox Text="{Binding BankNameAccount}" Width="200" Height="50"/>
                         </StackPanel>
                         <StackPanel>
                             <StackPanel>
                                 <Label Content="JEV No."/>
-                                <TextBox Width="200"/>
+                                <TextBox Text="{Binding JevNo, Mode=TwoWay}" Width="200"/>
                             </StackPanel>
                             <StackPanel>
                                 <Label Content="Date"/>
-                                <DatePicker Width="200"/>
+                                <DatePicker Width="200" SelectedDate="{Binding DateTime3, Mode=TwoWay}"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -293,16 +294,25 @@
 
                 <!-- Row 9 -->
                 <GroupBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2">
-                    <StackPanel HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" >
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Prepared By:"/>
-                            <TextBox Width="200"/>
+                            <TextBox Text="{Binding PName, Mode=TwoWay}" Width="200"/>
 
                         </StackPanel>
                         <StackPanel>
                             <Button Name="SaveBtn">Add</Button>
                             <Button Name="ClearBtn">Return</Button>
-                            <Button Name="ReportBtn">Report</Button>
+                        </StackPanel>
+                        <StackPanel>
+                            
+                            <GroupBox Header="Reports">
+                                <StackPanel>
+                            <Button >Income Statement</Button>
+                            <Button >Check Disbursment Journal</Button>
+                            <Button >Control Sheets</Button>
+                                </StackPanel>
+                            </GroupBox>
                         </StackPanel>
 
                     </StackPanel>

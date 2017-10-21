@@ -26,9 +26,12 @@ namespace IGPUep.Models
         public string UacsCode { get; set; }
         public string Credit { get; set; }
         public string Debit { get; set; }
+
+        //Receipt of Payment
+        public string CheckAda { get; set; }
         public string JevNumber { get; set; }
         public DateTime? DateTIme1 { get; set; }
-        public DateTime? DateTime2 { get; set }
+        public DateTime? DateTime2 { get; set; }
         public DateTime? DateTim3 { get; set; }
 
         //Approveed

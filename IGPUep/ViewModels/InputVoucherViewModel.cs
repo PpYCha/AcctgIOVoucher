@@ -255,6 +255,7 @@ namespace IGPUep.ViewModels
             set
             {
                 _debit = value;
+                NotifyOfPropertyChange();
             }
         }
 
@@ -269,19 +270,165 @@ namespace IGPUep.ViewModels
             set
             {
                 _credit = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        //Approve By
+        private string _aFname;
+
+        public string AFname
+        {
+            get
+            {
+                return _aFname;
+            }
+            set
+            {
+                _aFname = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _aMName;
+
+        public string AMName
+        {
+            get
+            {
+                return _aMName;
+            }
+            set
+            {
+                _aMName = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _aLName;
+
+        public string ALName
+        {
+            get
+            {
+                return _aLName;
+            }
+            set
+            {
+                _aLName = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _aJobPosition;
+
+        public string AJobPosition
+        {
+            get
+            {
+                return _aJobPosition;
+            }
+            set
+            {
+                _aJobPosition = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        //Receipt of Payment
+        private string _checkAda;
+
+        public string CheckAda
+        {
+            get
+            {
+                return _checkAda;
+            }
+            set
+            {
+                _checkAda = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private DateTime? _dateTime2;
+
+        public DateTime? DateTime2
+        {
+            get
+            {
+                return _dateTime2;
+            }
+            set
+            {
+                _dateTime2 = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _bankNameAccount;
+
+        public string BankNameAcount
+        {
+            get
+            {
+                return _bankNameAccount;
+            }
+            set
+            {
+                _bankNameAccount = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
+        private string _jevNo;
+
+        public string JevNo
+        {
+            get
+            {
+                return _jevNo;
+            }
+            set
+            {
+                _jevNo = value;
+                NotifyOfPropertyChange();
             }
         }
 
 
-        private string myVar;
+        private DateTime? _dateTime3;
 
-        public int MyProperty
+        public DateTime? DateTime3
         {
-            get { return myVar; }
-            set { myVar = value; }
+            get
+            {
+                return _dateTime3;
+            }
+            set
+            {
+                _dateTime3 = value;
+                NotifyOfPropertyChange();
+            }
         }
 
 
+
+        //last
+        private string _pName;
+
+        public string PName
+        {
+            get
+            {
+                return _pName;
+            }
+            set
+            {
+                _pName = value;
+                NotifyOfPropertyChange();
+            }
+        }
 
 
         public void SaveBtn()
@@ -293,26 +440,30 @@ namespace IGPUep.ViewModels
 
                 Voucher fundClusterNumber = new Voucher()
                 { FundCluster = _fundCluster,
-                  DVNumber = _dvNumber,
-                  DateTIme1 = _dateTime1,
-                  ModeOfPayment = _modeOfPayment,
-                  TinOrEmployeeNumber = _tinOrEmployeeNumber,
-                  OrsOrBurs = _orsOrBurs,
-                  Particulars = _particulars,
-                  MFOPAP = _mFOPAP,
-                  
-                  
-
+                    DVNumber = _dvNumber,
+                    DateTIme1 = _dateTime1,
+                    ModeOfPayment = _modeOfPayment,
+                    TinOrEmployeeNumber = _tinOrEmployeeNumber,
+                    OrsOrBurs = _orsOrBurs,
+                    Particulars = _particulars,
+                    MFOPAP = _mFOPAP,
+                    Amount = _amount1,
+                  AccountTitle = _accountTitle,
+                  UacsCode = _uacsCode,
+                  Debit = _debit,
+                  Credit = _credit,
+                 AFName = _aFname,
+                 AMName = _aMName,
+                 ALName = _aLName,
+                 AJobPosition = _aJobPosition,
+                CheckAda = _checkAda,
+                 DateTime2 = _dateTime2,
+                 JevNumber = _jevNo,
+                DateTim3 = _dateTime3
                 };
 
-            
-
-                //Voucher dvNumber = new Voucher() { DVNumber = _dvNumber };
                 ctx.Vouchers.Add(fundClusterNumber);
-            
-            
                 ctx.SaveChanges();
-                
                 ClearBtn();
             }
         }
@@ -321,12 +472,24 @@ namespace IGPUep.ViewModels
         {
             FundCluster = "";
             DVNumber = "";
-            
-            ModeOfPayment = "";
+            ModeOfPayment = " ";
             TinOrEmployeeNumber = "";
             OrsOrBurs = "";
             Particulars = "";
-            MFOPAP = "";
+            MFOPAP = " ";
+           
+            Amount1 = "";
+            AccountTitle = "";
+            UacsCode = "";
+            Debit = "";
+            Credit = "";
+            AFname = "";
+            AMName = "";
+            ALName = "";
+            AJobPosition = "";
+            CheckAda = "";
+            JevNo = "";
+            BankNameAcount = "";
         }
 
         public void ReportBtn()
