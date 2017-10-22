@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IGPUep.Views"
-             mc:Ignorable="d" Height="924.426" Width="1764.505">
+             mc:Ignorable="d">
 
     <UserControl.Resources>
         <Style x:Key="FadeOutButton" TargetType="{x:Type Button}">
@@ -36,29 +36,23 @@
         </Style>
     </UserControl.Resources>
 
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="auto"/>
 
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
 
-
-
-
-
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-     
-        <!--<WrapPanel Orientation="Vertical">
+            <!--<WrapPanel Orientation="Vertical">
                 <Button x:Name="LoadInputVoucher">
                     <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"></Image>
                 </Button>
@@ -67,52 +61,110 @@
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\gym.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\hostel.jpg"/>
            
-            --><!--<Image MaxHeight="200" MaxWidth="200" Margin="10" Source="..\Images\Kapihan.jpg"/>--><!--
+            -->
+            <!--<Image MaxHeight="200" MaxWidth="200" Margin="10" Source="..\Images\Kapihan.jpg"/>-->
+            <!--
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\lights.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\piggery.jpg"/>
                 <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\whiteBeach.jpg"/>
             <Image MaxHeight="200" MaxWidth="250" Margin="10" Source="..\Images\farmers.jpg"/>
         </WrapPanel>-->
 
-        <ListView Grid.Row="1" Grid.Column="1" Margin="10">
-                                   
-            <ListViewItem>
-                <StackPanel>
+            <ListView Grid.Row="1" Grid.Column="1" Margin="10" >
+                                       
+                <ListViewItem>
                     <StackPanel>
-                        <Button x:Name="LoadInputVoucher" 
+                        <StackPanel>
+                            <Button x:Name="LoadInputVoucher" 
                                 Style="{StaticResource FadeOutButton}"
                                 FocusVisualStyle="{x:Null}"
                                 Opacity="0.4"
                                 HorizontalAlignment="Center" 
                                 HorizontalContentAlignment="Center">
-                            <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"/>
-                        </Button>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
-                            <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
-      
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
-                        <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
-                            <Image MaxHeight="200" MaxWidth="200" Source="..\Images\Kapihan.jpg"/>
-                        </Button>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
-                            <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\arcade.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Arcade"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\farmers.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Farmers"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\garments.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Garments"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\gym.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Gymnatorium"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\hostel.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Hostel"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                                <Image MaxHeight="200" MaxWidth="200" Source="..\Images\lights.jpg"/>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,10,0" Text="Lighst and Sound System"/>
+                                <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
+
+                            </StackPanel>
+                            <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                        </StackPanel>
+                        <StackPanel>
 
                         </StackPanel>
-                        <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                     </StackPanel>
-                    <StackPanel>
-                       
-                    </StackPanel>
-                </StackPanel>
-            </ListViewItem>
-                           
-        </ListView>
-        <ContentControl Margin="10,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" 
+                </ListViewItem>
+                               
+            </ListView>
+            <ContentControl Margin="10,0,0,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="3" 
                         x:Name="ActiveItem" />
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

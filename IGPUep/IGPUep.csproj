@@ -156,6 +156,7 @@
     <Compile Include="Reports\IncomeStatementReportView.xaml.cs">
       <DependentUpon>IncomeStatementReportView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RequiredFiedValidationRule.cs" />
     <Compile Include="ViewModels\ManageIGPViewModel.cs" />
     <Compile Include="ViewModels\IGPViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

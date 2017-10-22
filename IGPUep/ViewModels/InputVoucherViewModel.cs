@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace IGPUep.ViewModels
 {
@@ -83,7 +84,7 @@ namespace IGPUep.ViewModels
 
         //Voucher
 
-        private string _fundCluster;
+        private string _fundCluster = string.Empty;
 
         public string FundCluster
         {
@@ -114,7 +115,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _dvNumber;
+        private string _dvNumber = string.Empty;
 
         public string DVNumber
         {
@@ -144,7 +145,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _tinOrEmployeeNumber;
+        private string _tinOrEmployeeNumber = string.Empty;
 
         public string TinOrEmployeeNumber
         {
@@ -159,7 +160,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _orsOrBurs;
+        private string _orsOrBurs = string.Empty;
 
         public string OrsOrBurs
         {
@@ -173,7 +174,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _particulars;
+        private string _particulars = string.Empty;
 
         public string Particulars
         {
@@ -201,7 +202,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _amount1;
+        private string _amount1 = string.Empty;
 
         public string Amount1
         {
@@ -244,7 +245,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _debit;
+        private string _debit = string.Empty;
 
         public string Debit
         {
@@ -259,7 +260,7 @@ namespace IGPUep.ViewModels
             }
         }
 
-        private string _credit;
+        private string _credit = string.Empty;
 
         public string Credit
         {
@@ -433,38 +434,51 @@ namespace IGPUep.ViewModels
 
         public void SaveBtn()
         {
-            using (var ctx = new AccountingContext())
+            if (_fundCluster.Equals(string.Empty))
+               
+
+
             {
-                //Voucher stud = new Voucher() { ModeOfPayment = "Cash" };
-                //ctx.Vouchers.Add(stud);
 
-                Voucher fundClusterNumber = new Voucher()
-                { FundCluster = _fundCluster,
-                    DVNumber = _dvNumber,
-                    DateTIme1 = _dateTime1,
-                    ModeOfPayment = _modeOfPayment,
-                    TinOrEmployeeNumber = _tinOrEmployeeNumber,
-                    OrsOrBurs = _orsOrBurs,
-                    Particulars = _particulars,
-                    MFOPAP = _mFOPAP,
-                    Amount = _amount1,
-                  AccountTitle = _accountTitle,
-                  UacsCode = _uacsCode,
-                  Debit = _debit,
-                  Credit = _credit,
-                 AFName = _aFname,
-                 AMName = _aMName,
-                 ALName = _aLName,
-                 AJobPosition = _aJobPosition,
-                CheckAda = _checkAda,
-                 DateTime2 = _dateTime2,
-                 JevNumber = _jevNo,
-                DateTim3 = _dateTime3
-                };
+            }
+            else
+            {
+                using (var ctx = new AccountingContext())
+                {
+                    //Voucher stud = new Voucher() { ModeOfPayment = "Cash" };
+                    //ctx.Vouchers.Add(stud);
 
-                ctx.Vouchers.Add(fundClusterNumber);
-                ctx.SaveChanges();
-                ClearBtn();
+                    Voucher fundClusterNumber = new Voucher()
+                    {
+                        FundCluster = _fundCluster,
+                        DVNumber = _dvNumber,
+                        DateTIme1 = _dateTime1,
+                        ModeOfPayment = _modeOfPayment,
+                        TinOrEmployeeNumber = _tinOrEmployeeNumber,
+                        OrsOrBurs = _orsOrBurs,
+                        Particulars = _particulars,
+                        MFOPAP = _mFOPAP,
+                        Amount = _amount1,
+                        AccountTitle = _accountTitle,
+                        UacsCode = _uacsCode,
+                        Debit = _debit,
+                        Credit = _credit,
+                        AFName = _aFname,
+                        AMName = _aMName,
+                        ALName = _aLName,
+                        AJobPosition = _aJobPosition,
+                        CheckAda = _checkAda,
+                        DateTime2 = _dateTime2,
+                        JevNumber = _jevNo,
+                        DateTim3 = _dateTime3
+                    };
+
+                    ctx.Vouchers.Add(fundClusterNumber);
+                    ctx.SaveChanges();
+                    ClearBtn();
+
+                    MessageBox.Show("Saved");
+                }
             }
         }
 
@@ -496,5 +510,7 @@ namespace IGPUep.ViewModels
         {
            
         }
+
+       
     }
 }

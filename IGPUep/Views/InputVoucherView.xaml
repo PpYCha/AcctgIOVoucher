@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-       
+       xmlns:c="clr-namespace:IGPUep.ViewModels"   
              xmlns:local="clr-namespace:IGPUep.Views"
               xmlns:numberOnlyBehaviourWpf="clr-namespace:NumberOnlyBehaviourWPF"
-             mc:Ignorable="d" Height="934.5" FontFamily="Arial" >
+             mc:Ignorable="d" FontFamily="Arial"  
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:c1="clr-namespace:DotnetBullet.WPFValidationWay1">
 
 
     <!--watermark-->
@@ -35,9 +37,24 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
-    </UserControl.Resources>
 
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"    
+              Value="{Binding RelativeSource={x:Static RelativeSource.Self},    
+                              Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="25" Text="*" DockPanel.Dock="Right"></TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+
+    </UserControl.Resources>
 
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -62,7 +79,6 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="15"/>
                 </Grid.RowDefinitions>
@@ -73,7 +89,7 @@
                     <StackPanel>
                         <TextBlock Text="Kapihan" HorizontalAlignment="Center" FontSize="20" FontFamily="Arial" FontWeight="Bold" />
                         <TextBlock Text="Entity Name" HorizontalAlignment="Center" FontSize="11" FontFamily="Arial" FontWeight="SemiBold" />
-                        <TextBlock Text="DISBURSEMENT VOUCHER" HorizontalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0" FontWeight="Bold"/>
+                        <TextBlock  Text="DISBURSEMENT VOUCHER" HorizontalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0" FontWeight="Bold"/>
                     </StackPanel>
                 </GroupBox>
                 <GroupBox Grid.Row="1" Grid.Column="2">
@@ -85,11 +101,23 @@
                               Width="200"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                               Style="{StaticResource MyWaterMarkStyle}"
-                              Height="25" Tag="DV Number"/>
+                              Height="25" Tag="DV Number"
+                             
+                                 />
+
+                           
+
+
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <Label  Content="Date:"/>
-                            <DatePicker Width="200" SelectedDate="{Binding DateTime1, Mode=TwoWay}"/>
+                            <DatePicker Width="200" 
+                                        SelectedDate="{Binding DateTime1, Mode=TwoWay}"
+                                        Name="datepicker" DisplayDateStart="{x:Static sys:DateTime.Now}" 
+                                       
+                                        >
+                                
+                            </DatePicker>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text=" DV No:"/>
@@ -305,19 +333,18 @@
                             <Button Name="ClearBtn">Return</Button>
                         </StackPanel>
                         <StackPanel>
-                            
+
                             <GroupBox Header="Reports">
                                 <StackPanel>
-                            <Button >Income Statement</Button>
-                            <Button >Check Disbursment Journal</Button>
-                            <Button >Control Sheets</Button>
+                                    <Button >Income Statement</Button>
+                                    <Button >Check Disbursment Journal</Button>
+                                    <Button >Control Sheets</Button>
                                 </StackPanel>
                             </GroupBox>
                         </StackPanel>
 
                     </StackPanel>
                 </GroupBox>
-                
             </Grid>
         </GroupBox>
     </ScrollViewer>
