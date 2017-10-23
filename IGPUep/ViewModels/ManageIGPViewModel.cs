@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace IGPUep.ViewModels
 {
-    public class ManageIGPViewModel:Screen
+    public class ManageIGPViewModel : Screen
     {
 
         private string _choosenPhoto;
@@ -21,8 +21,6 @@ namespace IGPUep.ViewModels
             get { return _choosenPhoto; }
             set { Set(ref _choosenPhoto, value); }
         }
-
-
 
         private string _igpName;
 
@@ -56,7 +54,7 @@ namespace IGPUep.ViewModels
 
 
 
-    
+
 
 
         public void SaveIgp()
@@ -83,13 +81,13 @@ namespace IGPUep.ViewModels
                 ctx.SaveChanges();
 
                 ClearIgp();
-                
+
             }
 
-          
+
         }
 
-  
+
 
 
         public void ClearIgp()
@@ -100,7 +98,7 @@ namespace IGPUep.ViewModels
         }
 
 
-       
+
 
     }
 }
