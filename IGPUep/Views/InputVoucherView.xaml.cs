@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using IGPUep.Reports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,22 @@ namespace IGPUep.Views
         public InputVoucherView()
         {
             InitializeComponent();
+        }
+
+        private void IncomeStatement(object sender, RoutedEventArgs e)
+        {
+            window2 win2 = new window2();
+            win2.Show();
+            MessageBox.Show("test");
+
+        }
+
+        private void test1(object sender, RoutedEventArgs e)
+        {
+            window2 win2 = new window2();
+            win2.Show();
+            MessageBox.Show("test");
+
         }
     }
 }

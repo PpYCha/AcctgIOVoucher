@@ -91,7 +91,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\arcade.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -102,7 +104,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\farmers.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -113,7 +117,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\garments.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -124,7 +130,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\gym.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -135,7 +143,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\hostel.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -146,7 +156,9 @@
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
                         </StackPanel>
                         <StackPanel>
-                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+                            <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"
+                                      Style="{StaticResource FadeOutButton}"
+                                     Opacity="0.4">
                                 <Image MaxHeight="200" MaxWidth="200" Source="..\Images\lights.jpg"/>
                             </Button>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

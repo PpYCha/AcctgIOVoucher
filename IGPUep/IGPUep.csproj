@@ -44,6 +44,9 @@
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
     </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -157,6 +160,7 @@
       <DependentUpon>IncomeStatementReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="RequiredFiedValidationRule.cs" />
+    <Compile Include="ValidationRule.cs" />
     <Compile Include="ViewModels\ManageIGPViewModel.cs" />
     <Compile Include="ViewModels\IGPViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -169,6 +173,9 @@
     </Compile>
     <Compile Include="Views\InputVoucherView.xaml.cs">
       <DependentUpon>InputVoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\window2.xaml.cs">
+      <DependentUpon>window2.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +263,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InputVoucherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\window2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -434,15 +434,7 @@ namespace IGPUep.ViewModels
 
         public void SaveBtn()
         {
-            if (_fundCluster.Equals(string.Empty))
-               
-
-
-            {
-
-            }
-            else
-            {
+           
                 using (var ctx = new AccountingContext())
                 {
                     //Voucher stud = new Voucher() { ModeOfPayment = "Cash" };
@@ -480,7 +472,7 @@ namespace IGPUep.ViewModels
                     MessageBox.Show("Saved");
                 }
             }
-        }
+        
 
         public void ClearBtn()
         {
