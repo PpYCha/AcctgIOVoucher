@@ -159,6 +159,12 @@
     <Compile Include="Reports\IncomeStatementReportView.xaml.cs">
       <DependentUpon>IncomeStatementReportView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ISReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RequiredFiedValidationRule.cs" />
     <Compile Include="ValidationRule.cs" />
     <Compile Include="ViewModels\ManageIGPViewModel.cs" />
@@ -233,6 +239,10 @@
     <EmbeddedResource Include="Reports\IncomeStatementReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>IncomeStatementReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ISReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ISReport.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
