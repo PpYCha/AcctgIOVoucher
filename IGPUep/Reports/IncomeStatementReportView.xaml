@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IGPUep.Reports"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="IGPUep.Reports.IncomeStatementReportView"
+        mc:Ignorable="d"
+        Title="IncomeStatementReportView" Height="300" Width="300">
+    <Grid>
+
+        <Viewer:CrystalReportsViewer  Height="249" Margin="10,10,10,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

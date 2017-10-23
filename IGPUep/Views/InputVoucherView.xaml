@@ -3,237 +3,351 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:c="clr-namespace:IGPUep.ViewModels"   
              xmlns:local="clr-namespace:IGPUep.Views"
               xmlns:numberOnlyBehaviourWpf="clr-namespace:NumberOnlyBehaviourWPF"
-             mc:Ignorable="d" >
+             mc:Ignorable="d" FontFamily="Arial"  
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:c1="clr-namespace:DotnetBullet.WPFValidationWay1">
+
+
+    <!--watermark-->
+    <UserControl.Resources>
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="White" BorderBrush="#FF7D8683" BorderThickness="1"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Gray" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"    
+              Value="{Binding RelativeSource={x:Static RelativeSource.Self},    
+                              Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="25" Text="*" DockPanel.Dock="Right"></TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+
+    </UserControl.Resources>
+
+
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <GroupBox>
-        <Grid>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
+            <Grid>
 
-        <!-- Row 1 -->
-         
-        <GroupBox Grid.Row="1" Grid.Column="1">
-            <StackPanel>
-                <TextBlock Text="Kapihan" />
-                <TextBlock Text="Entity Name" />
-                <TextBlock Text="DISBURSEMENT VOUCHER"/>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="15"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+
+                <!-- Row 1 -->
+
+                <GroupBox Grid.Row="1" Grid.Column="1">
                     <StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5"> 
-                    <Label Content="Fund Cluster:"/>
-                    <TextBox x:Name="FundCluster"
-                             Text="{Binding FundCluster, Mode=TwoWay}"
-                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
-                             Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label  Content="Date:"/>
-                            <DatePicker Width="200" SelectedDate="{Binding DateTime1, Mode=TwoWay}"/>
+                        <TextBlock Text="Kapihan" HorizontalAlignment="Center" FontSize="20" FontFamily="Arial" FontWeight="Bold" />
+                        <TextBlock Text="Entity Name" HorizontalAlignment="Center" FontSize="11" FontFamily="Arial" FontWeight="SemiBold" />
+                        <TextBlock  Text="DISBURSEMENT VOUCHER" HorizontalAlignment="Center" FontSize="14" FontFamily="Arial" Margin="0" FontWeight="Bold"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Grid.Column="2">
+                    <StackPanel HorizontalAlignment="Left" >
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label Content="Fund Cluster:"/>
+                            <TextBox x:Name="FundCluster"
+                              Text="{Binding FundCluster, Mode=TwoWay}"
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="DV Number"
+                             
+                                 />
+
+                           
+
+
                         </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="5">
-                    <TextBlock Text=" DV No:"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Label  Content="Date:"/>
+                            <DatePicker Width="200" 
+                                        SelectedDate="{Binding DateTime1, Mode=TwoWay}"
+                                        Name="datepicker" DisplayDateStart="{x:Static sys:DateTime.Now}" 
+                                       
+                                        >
+                                
+                            </DatePicker>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <TextBlock Text=" DV No:"/>
                             <TextBox x:Name="DVNumber"
                              Text="{Binding DVNumber, Mode=TwoWay}"
-                           numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
-                             Width="200"/>
+                             numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                             Width="200"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="YEAR-MONTH-NUMBER"/>
                         </StackPanel>
-            </StackPanel>
-        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
 
-        <!-- Row 2 -->
-        <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-            <WrapPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,10,0">
-                    <TextBlock Text="Mode of Payment:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <!--<CheckBox Content="MDS Check"  />
+                <!-- Row 2 -->
+                <GroupBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                    <WrapPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,10,0">
+                            <TextBlock Text="Mode of Payment:"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<CheckBox Content="MDS Check"  />
                     <CheckBox Content="Command Check"/>
                     <CheckBox Content="ADA"/>
                     <CheckBox Content="Others (Please Specify)"/>-->
 
-                    <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
-                          SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
-                    </ComboBox>
+                            <ComboBox Width="200" ItemsSource="{Binding ModeOfPaymentList}" 
+                          SelectedItem="{Binding ModeOfPayment, Mode=TwoWay}">
+                            </ComboBox>
+                            <TextBox Width="200"
+                                      Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Specify Here"/>
+                        </StackPanel>
+                    </WrapPanel>
+                </GroupBox>
+
+                <!-- Row 3 -->
+                <GroupBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Payee"/>
+
+                            <TextBox x:Name="FirstName" Width="200"/>
+
 
                         </StackPanel>
-            </WrapPanel>
-        </GroupBox>
-        
-        <!-- Row 3 -->
-        <GroupBox Grid.Row="3" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Payee"/>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                            <StackPanel>
-                                <TextBox Width="200"/>
-                            </StackPanel>
-                             
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="TIN/Employee No:"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="TIN/Employee No:"/>
                             <TextBox x:Name="TinOrEmployeeNumber" 
                              Text="{Binding TinOrEmployeeNumber, Mode=TwoWay}"
                               numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
                              Width="200"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="ORS/BURS No:"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-        <!-- Row 4 -->
-        <GroupBox Grid.Row="4" Grid.Column="1"
-                  Grid.ColumnSpan="3">
-            <StackPanel Orientation="Horizontal">
-            <Label Content="Adress:"/>
-            <TextBox Width="300"/>
-            </StackPanel>
-        </GroupBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="ORS/BURS No:"/>
+                            <TextBox x:Name="OrsOrBurs"
+                                     Text="{Binding OrsOrBurs, Mode=TwoWay}" 
+                                     numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                                     Width="200"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <!-- Row 4 -->
+                <GroupBox Grid.Row="4" Grid.Column="1"
+                  Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Adress:"/>
+                        <TextBox x:Name="Zone" Text="{Binding Zone, Mode=TwoWay}" 
+                                 Width="300"/>
 
-        <!-- Row 6 -->
-        <GroupBox Grid.Row="5" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                    <Label Content="Particulars"/>
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="Responsibility" />
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="MFO/PAP" />
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 6 -->
+                <GroupBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                            <Label Content="Particulars"/>
+                            <TextBox x:Name="Particulars"
+                                     Text="{Binding Particulars, Mode=TwoWay}"
+                                     Width="200" Height="100"/>
+                        </StackPanel>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="Responsibility" />
+                            <TextBlock Text="KAPIHAN" FontSize="20"/>
+                        </StackPanel>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="MFO/PAP" />
                             <ComboBox Width="200" ItemsSource="{Binding MFOPAPList}" 
                                   SelectedItem="{Binding MFOPAP, Mode=TwoWay}">
                             </ComboBox>
                         </StackPanel>
-                <StackPanel  Margin="0,0,10,0">
-                    <Label Content="Amount" />
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-
-        <!-- Row 7 -->
-        <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel>
-                    <Label Content="Account Title"/>
-                    <ComboBox>
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Test"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="UACS CODE"/>
-                    <ComboBox>
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Test"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </StackPanel>
-
-                <StackPanel>
-                    <Label Content="Debit"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="Credit"/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-        
-        <!-- Row 7 -->
-        <GroupBox Grid.Row="7" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" >
-                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
-                    <Label Content="Certified"/>
-                    <CheckBox Content="Cash Available"/>
-                    <CheckBox Content="Subject to Authority to Debit Account (when applicable)"/>
-                    <CheckBox Content="Supporting Documents Complete and Amount Claimed"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="Approved for Payment"/>
-                    <TextBox Width="200" Height="200"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-
-        <!-- Row 8 -->
-        <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Check/ADA No."/>
-                    <TextBox Width="200"/>
-                </StackPanel>
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Date"/>
-                    <DatePicker Width="200"/>
-                </StackPanel>
-                <StackPanel Margin="0,0,10,0">
-                    <Label Content="Bank Name and Account"/>
-                    <TextBox Width="200" Height="50"/>
-                </StackPanel>
-                <StackPanel>
-                    <StackPanel>
-                        <Label Content="JEV No."/>
-                        <TextBox Width="200"/>
+                        <StackPanel  Margin="0,0,10,0">
+                            <Label Content="Amount" />
+                            <TextBox x:Name="Amount1" Width="200" Height="50"
+                                      numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"/>
+                            <TextBlock Text="{Binding Path=Amount1, Mode=OneWay}"  
+                                       Width="200" Height="50"
+                                       TextAlignment="Right"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel>
-                        <Label Content="Date"/>
-                        <DatePicker Width="200"/>
+                </GroupBox>
+
+                <!-- Row 7 -->
+                <GroupBox Header="Accounting Entry:" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <Label Content="Account Title"/>
+                            <ComboBox Width="200" ItemsSource="{Binding AccountTitleList}" 
+                                  SelectedItem="{Binding AccountTitle, Mode=TwoWay}">
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="UACS CODE"/>
+                            <ComboBox Width="200" ItemsSource="{Binding UacsCodeList}" 
+                                  SelectedItem="{Binding UacsCode, Mode=TwoWay}">
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Label Content="Debit"/>
+                            <TextBox x:Name="Debit" Text="{Binding Debit, Mode=TwoWay}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Credit"/>
+                            <TextBox x:Name="Credit" Text="{Binding Credit, Mode=TwoWay}" Width="200"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
+                </GroupBox>
 
-        <!-- Row 9 -->
-        
-        <StackPanel Grid.Row="10" Grid.Column="1">
-        <Button Name="SaveBtn">Add</Button>
-        <Button Name="ClearBtn">Return</Button>
-        </StackPanel>
+                <!-- Row 7 -->
+                <GroupBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal" >
+                        <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                            <Label Content="Certified"/>
+                            <CheckBox Content="Cash Available"/>
+                            <CheckBox Content="Subject to Authority to Debit Account (when applicable)"/>
+                            <CheckBox Content="Supporting Documents Complete and Amount Claimed"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Approved for Payment"/>
 
-    </Grid>
+
+                            <TextBox  x:Name="AFname" Text="{Binding AFname, Mode=TwoWay}" 
+                                Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="First Name"/>
+                            <!--/ Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox x:Name="AMName" Text="{Binding AMName, Mode=TwoWay}" 
+                          
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Middle Name"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox x:Name="ALName" Text="{Binding ALName, Mode=TwoWay}" 
+                            
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Last Name"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+                            <TextBox x:Name="AJobPosition" Text="{Binding AJobPosition, Mode=TwoWay}" 
+                              
+                              Width="200"
+                              numberOnlyBehaviourWpf:NumberOnlyBehaviour.IsEnabled="True"
+                              Style="{StaticResource MyWaterMarkStyle}"
+                              Height="25" Tag="Job Position"/>
+                            <!--Text="{Binding FundCluster, Mode=TwoWay}"-->
+
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 8 -->
+                <GroupBox Grid.Row="8" Grid.Column="1" Header="Receipt for Payment" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Check/ADA No."/>
+                            <TextBox Text="{Binding CheckAda, Mode=TwoWay}" Width="200"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Date"/>
+                            <DatePicker Width="200" SelectedDate="{Binding DateTime2, Mode=TwoWay}"/>
+                        </StackPanel>
+                        <StackPanel Margin="0,0,10,0">
+                            <Label Content="Bank Name and Account"/>
+                            <TextBox Text="{Binding BankNameAccount}" Width="200" Height="50"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <StackPanel>
+                                <Label Content="JEV No."/>
+                                <TextBox Text="{Binding JevNo, Mode=TwoWay}" Width="200"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Date"/>
+                                <DatePicker Width="200" SelectedDate="{Binding DateTime3, Mode=TwoWay}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Row 9 -->
+                <GroupBox Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2">
+                    <StackPanel HorizontalAlignment="Center" >
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Prepared By:"/>
+                            <TextBox Text="{Binding PName, Mode=TwoWay}" Width="200"/>
+
+                        </StackPanel>
+                        <StackPanel>
+                            <Button Name="SaveBtn">Add</Button>
+                            <Button Name="ClearBtn">Return</Button>
+                        </StackPanel>
+                        <StackPanel>
+
+                            <GroupBox Header="Reports">
+                                <StackPanel>
+                                    <Button >Income Statement</Button>
+                                    <Button >Check Disbursment Journal</Button>
+                                    <Button >Control Sheets</Button>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
         </GroupBox>
     </ScrollViewer>
 </UserControl>
+
+                    

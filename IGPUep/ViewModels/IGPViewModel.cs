@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace IGPUep.ViewModels
 {
-    public class IGPViewModel : Screen
+    public class IGPViewModel : Conductor<object>
     {
+        public void LoadInputVoucher()
+        {
+            ActivateItem(new InputVoucherViewModel());
+          
+
+        }
+
+
        
+
     }
 }

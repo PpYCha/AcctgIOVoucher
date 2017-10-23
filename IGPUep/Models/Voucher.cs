@@ -19,7 +19,6 @@ namespace IGPUep.Models
         public string ModeOfPayment { get; set; }
         public string TinOrEmployeeNumber { get; set; }
         public string OrsOrBurs { get; set; }
-        public string Address { get; set; }
         public string Particulars { get; set; }
         public string Amount { get; set; }
         public string MFOPAP { get; set; }
@@ -27,8 +26,22 @@ namespace IGPUep.Models
         public string UacsCode { get; set; }
         public string Credit { get; set; }
         public string Debit { get; set; }
+
+        //Receipt of Payment
+        public string CheckAda { get; set; }
         public string JevNumber { get; set; }
         public DateTime? DateTIme1 { get; set; }
+        public DateTime? DateTime2 { get; set; }
+        public DateTime? DateTim3 { get; set; }
+
+        //Approveed
+        public string AFName { get; set; }
+        public string AMName { get; set; }
+        public string ALName { get; set; }
+        public string AJobPosition { get; set; }
+
+        //Process
+        public string PName { get; set; }
 
     }
 }
