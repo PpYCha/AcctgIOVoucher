@@ -6,7 +6,7 @@
         xmlns:maha="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:IGPUep.Reports"
         mc:Ignorable="d" Loaded="MetroWindow_Loaded"
-        Title="ReportViewer" Height="300" Width="300">
+        Title="ReportViewer" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid x:Name="reportContainer">
 
     </Grid>
