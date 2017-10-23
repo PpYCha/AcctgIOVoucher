@@ -162,6 +162,10 @@
       <DependentUpon>ISReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ISReportSource.cs" />
+    <Compile Include="Reports\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RequiredFiedValidationRule.cs" />
     <Compile Include="ViewModels\ManageIGPViewModel.cs" />
     <Compile Include="ViewModels\IGPViewModel.cs" />
@@ -250,6 +254,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Reports\IncomeStatementReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\ReportViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

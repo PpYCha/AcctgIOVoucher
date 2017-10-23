@@ -24,5 +24,11 @@ namespace IGPUep.Views
         {
             InitializeComponent();
         }
+
+        private void openIncomeStatement_Click(object sender, RoutedEventArgs e)
+        {
+            var reportViewer = new Reports.ReportViewer();
+            reportViewer.ShowDialog();
+        }
     }
 }

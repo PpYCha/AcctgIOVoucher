@@ -336,7 +336,7 @@
 
                             <GroupBox Header="Reports">
                                 <StackPanel>
-                                    <Button >Income Statement</Button>
+                                    <Button x:Name="openIncomeStatement" Click="openIncomeStatement_Click">Income Statement</Button>
                                     <Button >Check Disbursment Journal</Button>
                                     <Button >Control Sheets</Button>
                                 </StackPanel>
