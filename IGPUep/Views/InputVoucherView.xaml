@@ -37,10 +37,22 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"    
+              Value="{Binding RelativeSource={x:Static RelativeSource.Self},    
+                              Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
-       
-        
+        <ControlTemplate x:Key="validationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="25" Text="*" DockPanel.Dock="Right"></TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
 
     </UserControl.Resources>
 
@@ -317,16 +329,14 @@
 
                         </StackPanel>
                         <StackPanel>
-                            <Button Name="SaveBtn"
-                                    
-                                    >Add</Button>
-                            
+                            <Button Name="SaveBtn">Add</Button>
+                            <Button Name="ClearBtn">Return</Button>
                         </StackPanel>
                         <StackPanel>
 
                             <GroupBox Header="Reports">
                                 <StackPanel>
-                                    <Button Click="test1" >Income Statement</Button>
+                                    <Button x:Name="openIncomeStatement" Click="openIncomeStatement_Click">Income Statement</Button>
                                     <Button >Check Disbursment Journal</Button>
                                     <Button >Control Sheets</Button>
                                 </StackPanel>

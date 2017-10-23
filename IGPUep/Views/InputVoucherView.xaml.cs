@@ -1,6 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
-using IGPUep.Reports;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,21 +25,10 @@ namespace IGPUep.Views
             InitializeComponent();
         }
 
-        private void IncomeStatement(object sender, RoutedEventArgs e)
+        private void openIncomeStatement_Click(object sender, RoutedEventArgs e)
         {
-            window2 win2 = new window2();
-            win2.Show();
-            MessageBox.Show("test");
-
-        }
-
-        private void test1(object sender, RoutedEventArgs e)
-        {
-            window2 win2 = new window2();
-            win2.Show();
-            MessageBox.Show("test");
-
-
+            var reportViewer = new Reports.ReportViewer();
+            reportViewer.ShowDialog();
         }
     }
 }
