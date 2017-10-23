@@ -257,7 +257,9 @@
     <None Include="SampleReportOutput\Report Sample Output.xlsx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Reports\IncomeStatementReportView.xaml">
