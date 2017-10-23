@@ -22,20 +22,22 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <GroupBox Grid.Row="1" Grid.Column="1">
-            <StackPanel>
-                <TextBlock Text="Republic of the Philippines"></TextBlock>
-                <TextBlock Text="UNIVERSITY OF EASTERN PHILIPPINES"></TextBlock>
-                <TextBlock Text="University Town, Northern Samar"></TextBlock>
-                <TextBlock Text="Republic of the Philippines"></TextBlock>
+       
+           
 
-                <TextBlock Text="UEP KAPIHAN"></TextBlock>
-                <TextBlock Text="January 1, 2016-December 31, 2016"></TextBlock>
-            </StackPanel>
-
-        </GroupBox>
+        
         <GroupBox Grid.Row="2" Grid.Column="1">
+            
             <StackPanel>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Republic of the Philippines"></TextBlock>
+                    <TextBlock Text="UNIVERSITY OF EASTERN PHILIPPINES"></TextBlock>
+                    <TextBlock Text="University Town, Northern Samar"></TextBlock>
+                    <TextBlock Text="Republic of the Philippines"></TextBlock>
+
+                    <TextBlock Text="UEP KAPIHAN"></TextBlock>
+                    <TextBlock Text="January 1, 2016-December 31, 2016"></TextBlock>
+                </StackPanel>
                 <!--<StackPanel>
                     <TextBlock Text="Other Business Income"></TextBlock>
                     <TextBlock Text="2,628,329.08 "></TextBlock>
@@ -62,8 +64,8 @@
 
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <TextBlock Margin="0,0,10,0" Text="Other Business"/>
-                                <TextBlock Margin="0,0,10,0" Text="               "/>
-                                <TextBlock Margin="0,0,10,0" Text="2,628,329.08 "/>
+                                <TextBlock Margin="0,0,10,0" Text="                                          "/>
+                                <TextBlock Margin="0,0,10,0" Text="                         6,628,329.08 "/>
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock Margin="0,0,10,0" Text="Expens:"/>
@@ -71,51 +73,39 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="                         1,198,847.43 :"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="     Fuel, Oil  Lubricants Expenses"/>
+                                <TextBlock Margin="0,0,10,0" Text="                 1,198,847.43 :"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="     Other Supplies and Materials Expenses"/>
+                                <TextBlock Margin="0,0,10,0" Text="  1,198,847.43 :"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="     Electricity Expenses"/>
+                                <TextBlock Margin="0,0,10,0" Text="                                 1,198,847.43 :"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="     Taxes, Duties and Licenses"/>
+                                <TextBlock Margin="0,0,10,0" Text="                      1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text=" 5,994,237.15 "/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+                                <TextBlock Margin="0,0,10,0" Text="     Net Income"/>
+                                <TextBlock Margin="0,0,10,0" Text="                                                                        634,091.93  :"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Margin="0,0,10,0" Text="     Food Supplies Expenses:"/>
-                                <TextBlock Margin="0,0,10,0" Text="1,198,847.43 :"/>
+
+                            <StackPanel>
+                                <TextBlock Text="Prepared by:"></TextBlock>
+                                <TextBlock></TextBlock>
+                                <TextBlock Text="Rochelle G. Cuanico:"></TextBlock>
+                                <TextBlock Text="IGP-Bookkeeper"></TextBlock>
+                                <TextBlock></TextBlock>
+                                <TextBlock Text="                                                                        Certified correct: "></TextBlock>
+                                <TextBlock Text="                                                                       BRYAN V. NAVAROZA, CPA "></TextBlock>
+                                <TextBlock Text="                                                                                Accountant IV "></TextBlock>
                             </StackPanel>
                         </StackPanel>
                   </ListViewItem>
