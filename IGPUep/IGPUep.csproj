@@ -175,6 +175,7 @@
     <Compile Include="ViewModels\IGPViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\InputVoucherViewModel.cs" />
+    <Compile Include="ViewModels\SummaryIgpViewModel.cs" />
     <Compile Include="Views\IGPView.xaml.cs">
       <DependentUpon>IGPView.xaml</DependentUpon>
     </Compile>
@@ -183,6 +184,9 @@
     </Compile>
     <Compile Include="Views\InputVoucherView.xaml.cs">
       <DependentUpon>InputVoucherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SummaryIgpView.xaml.cs">
+      <DependentUpon>SummaryIgpView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\window2.xaml.cs">
       <DependentUpon>window2.xaml</DependentUpon>
@@ -283,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InputVoucherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SummaryIgpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -86,9 +86,32 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <TextBlock Margin="0,0,10,0" Text="Kapihan"/>
                                 <TextBlock Margin="0,0,10,0" Text="UEP Zone 4"/>
-
+                              
                             </StackPanel>
                             <TextBlock HorizontalAlignment="Center" Text="Catarman Northern Samar"/>
+                            <DockPanel>
+                                <Menu DockPanel.Dock="Top">
+                                    <MenuItem Header="Files">
+                                        <MenuItem Header="Input Voucher" />
+                                        <MenuItem Header="General Ledger" />
+                                        <MenuItem Header="Subsidiary Ledger" />
+                                        <MenuItem Header="Cash Disb. Journal" />
+                                        <MenuItem Header="Check Disb. Journal" />
+                                        <MenuItem Header="Cash Rec. Journal" />
+                                        <Separator />
+
+                                        <MenuItem Header="Trial Balance" />
+                                        <MenuItem Header="Controls Sheets" />
+                                        <MenuItem Header="Recapitalization" />
+                                    </MenuItem>
+                                    <MenuItem Header="Reports">
+                                        <MenuItem Header="Income Statement" />
+                                        <MenuItem Header="Balance Sheet" />
+                                        <MenuItem Header="Cash Flow Statement" />
+                                        <MenuItem Header="Accomplishment Reports" />
+                                    </MenuItem>
+                                </Menu>
+                            </DockPanel>
                         </StackPanel>
                         <StackPanel>
                             <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center"

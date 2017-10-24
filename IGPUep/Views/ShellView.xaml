@@ -29,12 +29,14 @@
         </StackPanel>
         <GroupBox VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" FontSize="18">
             <StackPanel>
-            
                 <StackPanel>
-                    <Button x:Name="LoadIGP" Grid.Row="2" Grid.Column="1">IGPs</Button>
+                    <Button x:Name="LoadSummaryIgp" Grid.Row="3" Grid.Column="1">Summarry</Button>
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="LoadCheckdj" Grid.Row="3" Grid.Column="1">Manage IGP</Button>
+                    <Button x:Name="LoadIgp" Grid.Row="2" Grid.Column="1">IGPs</Button>
+                </StackPanel>
+                <StackPanel>
+                    <Button x:Name="LoadManageIgp" Grid.Row="3" Grid.Column="1">Manage IGP</Button>
                 </StackPanel>
             </StackPanel>
 

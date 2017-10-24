@@ -9,7 +9,7 @@ namespace IGPUep.ViewModels
 {
     public class ShellViewModel : Conductor<object>
     {
-        public void LoadIGP()
+        public void LoadIgp()
         {
             ActivateItem(new IGPViewModel());
 
@@ -25,13 +25,15 @@ namespace IGPUep.ViewModels
         }
 
       
-        public void LoadCheckdj()
+        public void LoadManageIgp()
         {
             ActivateItem(new ManageIGPViewModel());
         }
 
+        public void LoadSummaryIgp() => ActivateItem(new SummaryIgpViewModel());
 
-   
+
+
 
     }
 }
