@@ -30,13 +30,16 @@
         <GroupBox VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" FontSize="18">
             <StackPanel>
                 <StackPanel>
-                    <Button x:Name="LoadSummaryIgp" Grid.Row="3" Grid.Column="1">Summarry</Button>
+                    <Button x:Name="LoadSummaryIgp">Summarry</Button>
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="LoadIgp" Grid.Row="2" Grid.Column="1">IGPs</Button>
+                    <Button x:Name="LoadIgp">IGPs</Button>
                 </StackPanel>
                 <StackPanel>
-                    <Button x:Name="LoadManageIgp" Grid.Row="3" Grid.Column="1">Manage IGP</Button>
+                    <Button x:Name="LoadManageIgp">Manage IGP</Button>
+                </StackPanel>
+                <StackPanel>
+                    <Button>Income</Button>
                 </StackPanel>
             </StackPanel>
 
